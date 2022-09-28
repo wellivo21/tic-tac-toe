@@ -1,3 +1,42 @@
+## Jogo da Velha (_tic-tac-toe_)
+
+## Aviso legal
+
+Esta aplicação foi criada em conjunto com o curso "React Clarified: Building a Game in React", de Tom Bowden, disponível na plataforma Udemy. Clique [aqui](https://www.udemy.com/course/react-clarified-building-a-game-in-react/) para ver a página do curso.
+
+### Descrição
+
+Este projeto tem como objetivo construir o Jogo da Velha usando React. Você pode conferir esta aplicação clicando [aqui](https://tic-tac-toe-ivo.netlify.app/)
+
+### Explicação
+
+A aplicação:
+
+1. Quem deve fazer a jogada atual;
+2. Atualiza o quadrado clicado com o símbolo (X ou O) do jogador atual;
+3. Mostra o jogador que ganhou o jogo.
+
+### Processo de criação
+
+Antes de começar a criação, foram deletados todos os escritos contigos nos arquivos index.js e index.css. Após, utilizei o arquivo index.js para criar o componente principal, Game.
+
+Os outros componentes criados foram "Board" e "Square" (Tabuleiro e Quadrado, respectivamente).
+
+No componente Board, foram criados vários estados: um para definir o número de quadrados, outro para definir qual o jogador (usando um booleano: caso verdadeiro, "X", caso falso, "O") e um terceiro para definir quantos quadrados faltam ser preenchidos.
+
+Foi criada também uma função para reiniciar o jogo (resetGame), a ser ativada com o clique de um botão que aparece na tela, abaixo do "tabuleiro", caso haja um ganhador ou caso o jogo termine em um empate.
+
+Também há uma outra função usada para calcular se houve um vencedor, executada sempre que há uma jogada. Caso uma das possibilidades de vitória seja alcançada, retorna-se o valor do ganhador ("X" ou "O").
+
+A todo tempo é mostrado ao usuário o _status_ do jogo: caso ainda não haja ganhador mas ainda restarem quadrados a serem preenchidos, é mostrado de quem é a vez; caso haja um ganhador (e a variável winner for verdadeira), é carregado o texto correspondente à vitória; caso não haja ganhador e o número de quadrados restantes for 0, é carregado um texto que corresponde ao empate.
+
+### Extras
+
+Algumas funcionalidades foram adicionadas exclusivamente por mim, sendo elas:
+
+1. Mostrar ao usuário caso o jogo termine num empate;
+2. Botão para reiniciar a aplicação, que é mostrado caso haja um ganhador ou o jogo termine num empate.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
