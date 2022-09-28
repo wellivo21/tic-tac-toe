@@ -8,7 +8,7 @@ import Board from './components/Board/Board';
 const Game = () => {
   return (
     <div className='game'>
-      Game
+      Tic-Tac-Toe
       <Board />
     </div>
   );
