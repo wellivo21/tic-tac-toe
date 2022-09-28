@@ -8,6 +8,7 @@ export default function Board() {
   const initialSquares = Array(9).fill(null);
   const [squares, setSquares] = useState(initialSquares);
   const [xIsNext, setXIsNext] = useState(true);
+  const [squaresLeft, setSquaresLeft] = useState(initialSquares.length);
 
   const handleClickEvent = (index) => {
     const newSquares = [...squares];
@@ -19,8 +20,8 @@ export default function Board() {
     }
     newSquares[index] = xIsNext ? 'X' : 'O';
     setSquares(newSquares);
-
     setXIsNext(!xIsNext);
+    setSquaresLeft(squaresLeft - 1);
   };
 
   const renderSquare = (index) => {
@@ -37,7 +38,13 @@ export default function Board() {
   const winner = calculateWinner(squares);
   const status = winner
     ? `Winner: ${winner}`
+    : squaresLeft === 0
+    ? 'DRAW'
     : `Next player: ${xIsNext ? 'X' : 'O'}`;
+
+  // const status = winner
+  //   ? `Winner: ${winner}`
+  //   : `Next player: ${xIsNext ? 'X' : 'O'}`;
 
   return (
     <div className='board'>
@@ -75,6 +82,7 @@ function calculateWinner(squares) {
 
   for (let line of lines) {
     const [a, b, c] = line;
+    // 0 1 2
 
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
       return squares[a]; // "X" or "O"
