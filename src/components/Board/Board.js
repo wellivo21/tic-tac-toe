@@ -24,6 +24,12 @@ export default function Board() {
     setSquaresLeft(squaresLeft - 1);
   };
 
+  const resetGame = () => {
+    setSquares(initialSquares);
+    setXIsNext(true);
+    setSquaresLeft(initialSquares.length);
+  };
+
   const renderSquare = (index) => {
     return (
       <Square
@@ -36,15 +42,12 @@ export default function Board() {
   };
 
   const winner = calculateWinner(squares);
+
   const status = winner
     ? `Winner: ${winner}`
     : squaresLeft === 0
     ? 'DRAW'
     : `Next player: ${xIsNext ? 'X' : 'O'}`;
-
-  // const status = winner
-  //   ? `Winner: ${winner}`
-  //   : `Next player: ${xIsNext ? 'X' : 'O'}`;
 
   return (
     <div className='board'>
@@ -64,6 +67,16 @@ export default function Board() {
         {renderSquare(7)}
         {renderSquare(8)}
       </div>
+      {squaresLeft === 0 && !winner && (
+        <button className='btn' onClick={resetGame}>
+          Reset game
+        </button>
+      )}
+      {winner && (
+        <button className='btn' onClick={resetGame}>
+          Reset game
+        </button>
+      )}
     </div>
   );
 }
